@@ -21,8 +21,6 @@ if (minutes < 10) {
 }
 h2.innerHTML = `${day}, ${hours}:${minutes}`;
 
-//
-
 function searchCity(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
