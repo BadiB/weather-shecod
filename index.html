@@ -16,23 +16,31 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Plus Week2</title>
   </head>
   <body>
+      
+    <div class="weather">
     <div class="container-header">
-      <h1>Lisbon ☔</h1>
-      <h2>16ºC</h2>
+      <h1 id="city">Lisbon ☔</h1>
+      <h2></h2>
+      <span class="temperature" id="temperature">16</span>
+    <span class="units">
+    <a href="#" id="celsius-link"> ºC | </a>
+   <a href="#" id="fahrenheit-link">ºF</a></span>
     </div>
-    <p>updated 20 minutes ag</p>
+    <p>updated 20 minutes ago</p>
     <div class="container-search">
       <p>Search city 🔎</p>
       <br />
-      <form>
-        <input type="text" placeholder="Enter city name" />
+      <form id="search-form">
+        <input type="text" id="search-city" placeholder="Enter city name">
+        <input type="submit" value="search">    
       </form>
     </div>
     <div class="button">
-      <button>⚙️</button>
+      <button>Current</button>
     </div>
     <div class="container">
       <div class="row">
@@ -211,5 +219,7 @@
     <td>.</td>
   </tr>
 </table>
+</div>
+<script src="src/index.js"></script>
   </body>
 </html>

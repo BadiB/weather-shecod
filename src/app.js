@@ -1,32 +1,43 @@
-let weather = {
-  paris: {
-    name: "Paris",
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    name: "Tokyo",
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    name: "Lisbon",
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    name: "San Francisco",
-    temp: 20.9,
-    humidity: 100,
-  },
-  oslo: {
-    name: "Oslo"
-    temp: -5,
-    humidity: 20,
-  },
-};
+let now = new Date();
+let h2 = document.querySelector("h2");
+let date = now.getDate();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+h2.innerHTML = `${day}, ${hours}:${minutes}`;
 
-let city = prompt("Enter a city");
-        alert(`It is currently ${temp}°C in ${} with a humidity of ${humidity}%`);
-      } else {
-        alert(`Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${}`);
+//
+
+function searchCity(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#city");
+  let cityInput = document.querySelector("#search-city");
+  cityElement.innerHTML = cityInput.value;
+  let apiKey = "49b631c45785fe73d2a88477803dea22";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showTemperature);
+}
+let searchSubmit = document.querySelector("#search-form");
+searchSubmit.addEventListener("submit", searchCity);
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let temperatureResult = document.querySelector("#temperature");
+  temperatureResult.innerHTML = `${temperature}`;
+}
