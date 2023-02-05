@@ -1,0 +1,48 @@
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-size-adjust: 12px;
+}
+
+.container-search {
+  position: fixed;
+  top: 40px;
+  right: 80px;
+  font-size: 20px;
+}
+
+.container-header {
+  margin: 30px 15px;
+  display: block;
+}
+.button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.row {
+  display: block;
+  padding: 100px;
+  margin: 50px 30px;
+}
+.col-1 {
+  width: 5px 15px;
+  margin: 10px 30px;
+}
+.table {
+  text-align: center;
+  width: auto;
+  padding: 5px 60px;
+  margin: 40px 30px;
+}
