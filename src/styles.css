@@ -9,7 +9,8 @@ h2 {
 }
 
 p {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
   left: 10px;
   top: 0;
   text-size-adjust: 12px;
