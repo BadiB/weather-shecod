@@ -17,28 +17,30 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <title>Wheater</title>
+    <title>Wheater App</title>
   </head>
   <body>
-      
     <div class="weather">
     <div class="container-header">
-      <h1 id="city">Lisbon ☔</h1>
+      <h1 id="city">Lisbon</h1>
+      <img src="" alt="Clear" id="icon" class="float-left" />
       <h2></h2>
+      <h3>
       <span class="temperature" id="temperature">16</span>
     <span class="units">
     <a href="#" id="celsius-link"> ºC | </a>
    <a href="#" id="fahrenheit-link">ºF</a></span>
+   </h3>
+    </div>
+     <div class="button">
+      <button>Current</button>
     </div>
     <div class="container-search">
       <p>Search city 🔎</p>
       <form id="search-form">
         <input type="text" id="search-city" placeholder="Enter city name">
-        <input type="submit" value="search">    
+        <input type="submit" value="search" autocomplete="off">    
       </form>
-    </div>
-    <div class="button">
-      <button>Current</button>
     </div>
     <div class="container">
       <div class="row">
@@ -52,29 +54,11 @@
       </div>
     </div>
     <div class="table">
-    <table>
-  <colgroup span="26"></colgroup>
-  <tr>
-    <td>TEMP. MIN.</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td>TEMP. MAX.</td>
-    <td>.</td>
-  </tr>
-    <tr>
-    <td>WIND KM/H</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td>WAVES HEIGHT</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td>SEA TEMP.</td>
-    <td>.</td>
-  </tr>
-</table>
+    <ul>
+      <li>Humidity: <span id="humidity"></span>%</li>
+      <li>Wind: <span id="wind"></span> km/h</li>
+    </ul>
+</div>
 </div>
 <div>
 <a href="https://github.com/BadiB/weather-shecod.git" target="_blank">Open source code</a> by Baltazar
