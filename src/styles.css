@@ -9,8 +9,7 @@ h2 {
 }
 
 p {
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   left: 10px;
   top: 0;
   text-size-adjust: 12px;
@@ -20,15 +19,17 @@ p {
   position: fixed;
   top: 40px;
   right: 60px;
-  font-size: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 18px;
 }
 
 .container-header {
-  margin: 40px 15px 10px 40px;
+  margin: 30px 15px;
 }
 .button {
-  right: 0;
-  top: 0;
+  margin: 0px 10px;
+  padding: 3px 25px;
 }
 .col-1 {
   display: block;
