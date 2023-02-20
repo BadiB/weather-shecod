@@ -21,44 +21,36 @@ if (minutes < 10) {
 }
 h2.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function displayTemperature(response) {
-  let temperatureElement = document.querySelector("temperature");
-  let cityElement = document.querySelector("city");
-  let descriptionElement = document.querySelector("description");
-  let humidityElement = document.querySelector("humidity");
-  let windElement = document.querySelector("wind");
-  let iconElement = document.querySelector("#icon");
-
-  celsiusTemperature = response.data.main.temp;
-
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
-}
-
-function search(city) {
-  let apiKey = "49b631c45785fe73d2a88477803dea22";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
-}
-
-function handleSubmit(event) {
+function searchCity(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  search(cityInputElement.value);
+  let cityElement = document.querySelector("#city");
+  let cityInput = document.querySelector("#search-city");
+  cityElement.innerHTML = cityInput.value;
+  let apiKey = "49b631c45785fe73d2a88477803dea22";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}`;
+
+  axios
+    .get(`${apiUrl}&appid=${apiKey}&units=metric`)
+    .then(showCelsiusTemperature);
+}
+let searchSubmit = document.querySelector("#search-form");
+searchSubmit.addEventListener("submit", searchCity);
+
+function showCelsiusTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let temperatureResult = document.querySelector("#temperature");
+  temperatureResult.innerHTML = `${temperature}`;
+}
+
+function showHumidity(response) {
+  let humidity = Math.round(response.data.main.temp);
+  let humidityResult = document.querySelector("#humidity");
+  humidityResult.innerHTML = `${humidity}`;
 }
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("temperature");
+  let temperatureElement = document.querySelector("#temperature");
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
@@ -70,17 +62,18 @@ function displayCelsiusTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("temperature");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let celsiusTemperature = null;
-
 let form = document.querySelector("search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("fahrenheit-link");
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-let celsiusLink = document.querySelector("celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+search("Lisbon");
