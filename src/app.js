@@ -43,7 +43,7 @@ function showCelsiusTemperature(response) {
 }
 
 function showHumidity(response) {
-  let humidity = Math.round(response.data.main.temp);
+  let humidity = Math.round(response.data.main.humidity);
   let humidityResult = document.querySelector("#humidity");
   humidityResult.innerHTML = `${humidity}`;
 }
