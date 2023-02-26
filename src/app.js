@@ -1,3 +1,5 @@
+searchCity("Lisbon");
+
 let now = new Date();
 let h2 = document.querySelector("h2");
 let date = now.getDate();
@@ -88,5 +90,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-showCelsiusTemperature("Lisbon");
