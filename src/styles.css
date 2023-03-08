@@ -5,7 +5,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 h3 {
@@ -47,4 +47,8 @@ p {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 15px;
   margin: 1px auto;
+}
+
+.weather-forecast {
+  padding: 0px 50px;
 }
